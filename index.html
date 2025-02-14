@@ -85,7 +85,9 @@
             '1.png',
             '2.png',
             '3.png',
-            '4.png'
+            '4.png',
+            '5.png',
+            '6.png'
         ];
         const preloadedImages = imageSources.map(src => {
             const img = new Image();
@@ -99,9 +101,6 @@
         let height = canvas.height = window.innerHeight;
         const random = (min, max) => Math.random() * (max - min) + min;
 
-        /* =======================
-           Animación de Corazones
-        ========================== */
         const hearts = [];
 
         function createHeart() {
@@ -139,9 +138,6 @@
             }
         }
 
-        /* =====================================
-           Animación de Imágenes (sin deformar)
-        ======================================== */
         const animatedImages = [];
 
         function createAnimatedImage() {
@@ -153,7 +149,7 @@
             const imgHeight = naturalHeight * scale;
             const x = random(0, width - imgWidth);
             const y = height + imgHeight;
-            const speed = random(3, 7);
+            const speed = random(1, 4);
             const drift = random(-0.5, 0.5);
             return { img, x, y, scale, speed, drift };
         }
@@ -178,9 +174,6 @@
             }
         }
 
-        /* =====================
-             Función de Animación
-        ======================== */
         function animate() {
             ctx.clearRect(0, 0, width, height);
             updateHearts();
